@@ -2,8 +2,10 @@ import discord
 import CONST
 import time
 import asyncio
+import random
 token = CONST.token
 client = discord.Client()
+
 
 messages = joined = 0
 #https://discord.com/oauth2/authorize?client_id=764893385932406804&scope=bot&permissions=0
@@ -21,7 +23,9 @@ messages = joined = 0
 #             print(e)
 #             await asyncio.sleep(10)
 
-
+# @client.event
+# async def on_member_update(before,after):
+#
 
 @client.event
 async def on_member_join(member):
@@ -37,11 +41,22 @@ async def on_member_join(member):
 async def on_message(message):
     global messages, joined
     messages+=1
+    bad_words = ["love","kadhal"]
+    counters = ["Sir ivana thooki jail la podunga","Dei unnala yaaru ulla vitta","Sangathuku bango vilavikka oruthan vandutandi","Po apdi poi MMBU","Ivan namakku thevaya","Goppa adha pathiye pesadha nee"]
+    for word in bad_words:
+        if message.content.find(word) != -1:
+                await message.channel.purge(limit=1)
+                await message.channel.send(counters[random.randint(0,len(counters))])
+                #await message.channel.send(counters[len(counters)])
+                break
+
     id = client.get_guild(739833441649950751)
 
 
     if message.content.find("!hello") != -1:
-        await message.channel.send("Hi")
+        await message.channel.send("Junk here resents your presence, thank you")
+    elif message.content == "!help":
+        embed = discord.Embed(title="Help on Junk", description="Things you can have Junk do apart from abusing you ")
     elif message.content == "!users":
         await message.channel.send(f"""{id.member_count} mates are in this channel""")
     elif message.content == "!stats":
