@@ -1,9 +1,8 @@
 import discord
-import CONST
 import time
 import asyncio
 import random
-token = CONST.token
+token = "NzY0ODkzMzg1OTMyNDA2ODA0.X4M4eg.gp4HbJ2pg4vQvSuou50utZ9pCjM"
 client = discord.Client()
 
 
