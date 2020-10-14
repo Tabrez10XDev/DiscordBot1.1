@@ -2,7 +2,12 @@ import discord
 import time
 import asyncio
 import random
-token = "NzY0ODkzMzg1OTMyNDA2ODA0.X4M4eg.gp4HbJ2pg4vQvSuou50utZ9pCjM"
+token = ""
+
+with open("CONST.txt","r") as f:
+    lines = f.readlines()
+    token = lines[0].strip()
+
 client = discord.Client()
 
 
