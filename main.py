@@ -56,7 +56,12 @@ async def on_message(message):
     if message.content.find("!hello") != -1:
         await message.channel.send("Junk here resents your presence, thank you")
     elif message.content == "!help":
-        embed = discord.Embed(title="Help on Junk", description="Things you can have Junk do apart from abusing you ")
+        embed = discord.Embed(title="Know the commands better", description="Things you can have Junk do apart from abusing you ")
+        embed.add_field(name="!hello",value="Have the BOT greet you")
+        embed.add_field(name="!users",value="Find total members in the channel")
+        embed.add_field(name="!stats",value="To see how active the server was")
+        embed.add_field(name="Anything love",value="Junk might verbally abuse you but you cant sue cuz i dont exist")
+        await message.channel.send(content = None, embed=embed)
     elif message.content == "!users":
         await message.channel.send(f"""{id.member_count} mates are in this channel""")
     elif message.content == "!stats":
